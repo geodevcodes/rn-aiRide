@@ -1,21 +1,40 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import icons from "@/constants/icons";
 import RideSummary from "@/components/RideSummary";
 import Search from "@/components/Search";
 import images from "@/constants/images";
 
+import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
+
 const Home = () => {
+  const { user } = useUser();
+  console.log(user, "this is user details");
   return (
     <SafeAreaView className="bg-general-500 h-full">
+      <View>
+        <SignedIn>
+          <Text>Hello {user?.emailAddresses[0].emailAddress}</Text>
+        </SignedIn>
+        <SignedOut>
+          <Link href="/(auth)/sign-in">
+            <Text>Sign in</Text>
+          </Link>
+          <Link href="/(auth)/sign-up">
+            <Text>Sign up</Text>
+          </Link>
+        </SignedOut>
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="pb-32 px-7"
       >
         <View className="flex flex-row items-center justify-between my-5">
-          <Text className="text-3xl font-JakartaBold">Welcome John</Text>
+          <Text className="text-3xl font-JakartaBold">
+            Welcome {user?.emailAddresses[0].emailAddress}
+          </Text>
           <TouchableOpacity
             onPress={() => router.push("/sign-in")}
             className="p-4 rounded-full bg-white shadow-xs"

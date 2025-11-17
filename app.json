@@ -22,11 +22,16 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#2F80ED"
       },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAKjaA4DdrIpojpxf_NAvwPABr3qIAyr8k"
+        }
+      },
       "package": "com.geodevcode.airide"
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -38,7 +43,19 @@
           "resizeMode": "cover",
           "backgroundColor": "#2F80ED"
         }
-      ]
+      ],
+      [
+        "expo-maps",{
+          "requestLocationPermission": "true",
+          "locationPermission": "Allow AIRide to use your location"
+        }
+      ],
+       [
+      "expo-router",
+      {
+        "origin": "https://evanbacon.dev/"
+      }
+    ]
     ],
     "experiments": {
       "typedRoutes": true
