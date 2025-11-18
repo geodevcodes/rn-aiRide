@@ -19,6 +19,7 @@ const SignInPage = () => {
 
   // Handle the submission of the sign-in form
   const onSignInPress = async () => {
+      router.replace("/");
     if (!isLoaded) return;
 
     // Start the sign-in process using the email and password provided
@@ -61,6 +62,7 @@ const SignInPage = () => {
             icon={icons.email}
             textContentType="emailAddress"
             value={form.email}
+            inputStyle="lowercase"
             onChangeText={(value) => setForm({ ...form, email: value })}
           />
           <FormField

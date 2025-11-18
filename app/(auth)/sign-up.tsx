@@ -125,6 +125,7 @@ const SignUp = () => {
             icon={icons.email}
             textContentType="emailAddress"
             value={form.email}
+            inputStyle="lowercase"
             onChangeText={(value) => setForm({ ...form, email: value })}
           />
           <FormField

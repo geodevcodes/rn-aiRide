@@ -45,17 +45,18 @@
         }
       ],
       [
-        "expo-maps",{
-          "requestLocationPermission": "true",
-          "locationPermission": "Allow AIRide to use your location"
+        "expo-router",
+        {
+          "origin": "https://evanbacon.dev/"
         }
       ],
-       [
-      "expo-router",
-      {
-        "origin": "https://evanbacon.dev/"
-      }
-    ]
+     [
+       "expo-maps",
+       {
+         "requestLocationPermission": "true",
+         "locationPermission": "Allow AIRide to use your location"
+       }
+     ]
     ],
     "experiments": {
       "typedRoutes": true
